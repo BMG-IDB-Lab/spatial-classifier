@@ -1,0 +1,46 @@
+name: projection_environment
+
+channels:
+  - rapidsai
+  - conda-forge
+  - nvidia
+  - nodefaults
+
+dependencies:
+  - python=3.12
+  - pip
+
+  # Shared CUDA runtime and headers used by CuPy/RAPIDS kernels.
+  - cuda-version=12.9
+  - cuda-cudart-dev=12.9
+  - cuda-nvrtc=12.9
+
+  # Scientific Python and single-cell analysis.
+  - numpy
+  - pandas
+  - scipy
+  - anndata
+  - scanpy
+  - matplotlib
+  - h5py
+
+  # GPU array/ML/graph libraries; let conda resolve their shared dependencies.
+  - cupy
+  - cudf=26.10
+  - cuml=26.10
+  - cugraph=26.10
+
+  # Explicitly select GPU-enabled PyTorch rather than a CPU-only build.
+  - "pytorch-gpu>=2.8,<3"
+  - "scvi-tools>=1.5,<1.6"
+
+  # Common Scanpy workflow dependencies and notebook support.
+  - scikit-misc
+  - python-igraph
+  - leidenalg
+  - ipykernel
+  - jupyterlab
+
+  # Precompiled CUDA 12 wheel; the GPU dependencies above come from conda.
+  - pip:
+      - rapids-singlecell-cu12==0.18.1
