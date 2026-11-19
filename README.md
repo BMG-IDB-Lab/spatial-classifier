@@ -73,3 +73,37 @@ Basic run will produce spatially annotated dataset, prediction table for cells a
 | `cells_annotated.csv` | Metadata from adata object  |
 | `summary.csv` | scIB metrics for integration and summary for cell projection |
 
+
+## Advanced usage
+
+Advanced workflow contains additional options with plotting module for results and probabiity outputs for cell projections 
+
+### 1. Plotting module
+
+As with basic workflow, plotting module can be called as a flag in full pipeline or as a separate script for plotting:
+
+1. As a full workflow:
+
+```bash
+python3 src/conductor.py \
+  --sub False \
+  --reference_dir  REFERENCE_DIR\ #where to upload references
+  --input_dir INPUT_FILE_DIR
+  --base False #running it without --base flag at all or setting it to False    
+```
+
+2. As subprocess without downloading and reference subsetting steps:
+
+```bash
+python3 src/plotter.py \
+  --input INPUT_DIR \ # already spatially annotated input file
+  --fig_dir OUTPUT_FIGURE_DIR
+```
+
+![Placeholder for the advanced usage workflow or diagnostic results](/images/flow_plot.png)
+
+### 2. Probabiity outputs
+
+To get additional table with assigned probability of annotation through all of available classes for each cell you only need to add --prob True flag to any of the launches of the conductor.py. As results, table with probablility distribution of annotation for each cell will be added to output directory.
+
+
