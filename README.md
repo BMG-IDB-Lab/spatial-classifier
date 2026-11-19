@@ -99,6 +99,7 @@ python3 src/plotter.py \
   --input INPUT_DIR \ # already spatially annotated input file
   --fig_dir OUTPUT_FIGURE_DIR
 ```
+Additional images will contain visualizations, such as UMAP with input projected on reference, UMAP with spatially annotated input dataset and sankey plot for distribution of annotated cells:
 
 ![Placeholder for the advanced usage workflow or diagnostic results](/images/flow_plot.png)
 
